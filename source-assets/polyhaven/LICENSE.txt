@@ -1,0 +1,4 @@
+Poly Haven assets: CC0 1.0 Public Domain Dedication.
+https://polyhaven.com/license
+https://creativecommons.org/publicdomain/zero/1.0/
+Original creators and asset URLs are in each SOURCE.json.

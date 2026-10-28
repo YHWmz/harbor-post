@@ -12,7 +12,7 @@ for(const bank of nav.northern_closures){
 }
 assert.deepEqual(district.features,nav.district_features);
 for(const kind of ['manor','restaurant','hall','winery','formal_garden','summit_garden','neighborhood_garden'])assert.ok(district.features.some(f=>f.kind===kind),kind+' is exported');
-assert.ok(district.triangles>10000&&district.triangles<28000,'district has an independent bounded scene budget');
+assert.ok(district.triangles>10000&&district.triangles<50000,'district has an independent bounded scene budget');
 for(const f of district.features){
  assert.ok(BANKS.some(b=>circlePolygon(f.x,f.z,.1,b.polygon)),f.name+' is on solid land');
  if(['manor','restaurant','hall','winery'].includes(f.kind))for(const [x,z] of f.footprint)assert.ok(BANKS.some(b=>circlePolygon(x,z,.05,b.polygon)),f.name+' building footprint stays on land');
@@ -23,3 +23,7 @@ const blob=readFileSync(new URL('../dist/assets/civic-districts.glb',import.meta
 assert.ok(doc.nodes.every(n=>!n.mesh||n.name.startsWith('SM_District_')),'district geometry is native Blender export');
 const tris=doc.meshes.flatMap(m=>m.primitives).reduce((n,p)=>n+doc.accessors[p.indices].count/3,0);assert.equal(tris,district.triangles);
 console.log(`PASS two northern closures, manor/restaurant/hall/winery and gardens on land; native district ${tris} triangles`);
+
+const curated=JSON.parse(readFileSync(new URL('../dist/assets/curated-assets.json',import.meta.url)));assert.equal(curated.license,'CC0-1.0');assert.deepEqual(nav.curated_assets,curated.usage);assert.equal(curated.usage.gazebo,2);assert.equal(curated.usage.garden_bench,3);assert.equal(curated.usage.horse_statue,1);assert.ok(curated.geometry.horse_statue.original_triangles>20000);assert.ok(curated.geometry.horse_statue.optimized_triangles<=1800,'scan is simplified for the game');assert.ok(!doc.images?.length&&!doc.textures?.length,'curated props use paper materials, not original photoreal textures');for(const name of ['gazebo','horse_statue','garden_bench'])assert.ok(curated.geometry[name].paper_materials.length<4,'public prop is remapped to the shared paper palette');
+console.log('PASS actual CC0 gazebo/bench/sculpture reuse, bounded scan simplification and texture-free shared paper materials');
+let sceneTriangles=0;for(const filename of ['european-water-town.glb','civic-districts.glb','approved-harbor-v5.glb','painted-hills.glb','cliff-carriage.glb']){const b=readFileSync(new URL('../dist/assets/'+filename,import.meta.url));const d=JSON.parse(b.toString('utf8',20,20+b.readUInt32LE(12)));sceneTriangles+=d.meshes.flatMap(m=>m.primitives).reduce((n,p)=>n+d.accessors[p.indices].count/3,0);}assert.ok(sceneTriangles<300000,'complete exported scene remains below the bounded total geometry budget');console.log('PASS total exported scene '+sceneTriangles+' triangles');

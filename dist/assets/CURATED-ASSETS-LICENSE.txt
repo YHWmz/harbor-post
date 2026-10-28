@@ -1,0 +1,16 @@
+Curated public models used in Harbor Post
+
+Gazebo — Quaternius, CC0 1.0.
+https://poly.pizza/m/xYZB1TmGMv
+https://quaternius.com/packs/medievalvillage.html
+
+Horse Statue 01 and Painted Wooden Bench — Poly Haven, CC0 1.0.
+https://polyhaven.com/a/horse_statue_01
+https://polyhaven.com/a/painted_wooden_bench
+https://polyhaven.com/license
+Creators are retained in source-assets/polyhaven/*/SOURCE.json.
+
+CC0 legal dedication:
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Edits: static game meshes simplified, normalized to metres and recolored into shared hand-drawn materials in Blender.

@@ -1,0 +1,39 @@
+{
+  "license": "CC0-1.0",
+  "sources": {
+    "gazebo": "https://poly.pizza/m/xYZB1TmGMv",
+    "horse_statue": "https://polyhaven.com/a/horse_statue_01",
+    "garden_bench": "https://polyhaven.com/a/painted_wooden_bench"
+  },
+  "usage": {
+    "horse_statue": 1,
+    "gazebo": 2,
+    "garden_bench": 3
+  },
+  "geometry": {
+    "gazebo": {
+      "original_triangles": 698,
+      "optimized_triangles": 698,
+      "paper_materials": [
+        "Slate",
+        "Stone",
+        "Wood"
+      ]
+    },
+    "horse_statue": {
+      "original_triangles": 22388,
+      "optimized_triangles": 1800,
+      "paper_materials": [
+        "Stone"
+      ]
+    },
+    "garden_bench": {
+      "original_triangles": 630,
+      "optimized_triangles": 630,
+      "paper_materials": [
+        "Wood"
+      ]
+    }
+  },
+  "processing": "Blender silhouette decimation, metre normalization, paper palette, shared ink treatment"
+}
