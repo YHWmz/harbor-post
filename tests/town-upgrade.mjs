@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {BANKS,STREET_LAMPS,WATER_SOURCE} from '../dist/world.mjs';
+import {circlePolygon,boatBlocked} from '../dist/logic.mjs';
+const nav=JSON.parse(readFileSync(new URL('../dist/assets/town-navigation.json',import.meta.url)));
+assert.equal(nav.estuary_count,1);
+assert.equal(nav.coastal_closures.length,2);
+for(const b of nav.coastal_closures){assert.ok(BANKS.some(x=>x.name==='CoastalSpit'&&x.minX===b.minX));const x=b.polygon.reduce((n,p)=>n+p[0],0)/b.polygon.length,z=b.polygon.reduce((n,p)=>n+p[1],0)/b.polygon.length;assert.ok(circlePolygon(x,z,.1,b.polygon),'old outer mouths are solid native coastline');}
+assert.equal(boatBlocked(1.06,58.64,0),false,'main estuary stays open');
+assert.ok(Object.values(nav.architecture).reduce((a,b)=>a+b,0)>=70,'denser town retains six architecture styles');
+assert.ok(BANKS.some(b=>circlePolygon(nav.plaza.x,nav.plaza.z,.1,b.polygon)),'central square is on solid land');
+assert.equal(nav.details.central_plazas,1);
+assert.equal(STREET_LAMPS.length,27);assert.ok(STREET_LAMPS.filter(p=>p.ground>1).length>=6,'lamps climb the elevated coach route');
+assert.deepEqual(STREET_LAMPS,nav.street_lamps);
+assert.deepEqual(WATER_SOURCE,nav.water_source);
+assert.ok(WATER_SOURCE[0].y>10&&WATER_SOURCE.at(-1).y<0,'spring descends from mountain to lake water level');
+for(let i=1;i<WATER_SOURCE.length;i++)assert.ok(WATER_SOURCE[i].y<WATER_SOURCE[i-1].y&&WATER_SOURCE[i].z>WATER_SOURCE[i-1].z,'cascade flows continuously downhill toward the lake');
+assert.ok(BANKS.some(b=>b.name==='MountainCascade'),'solid source rocks have boat collision');
+const glb=readFileSync(new URL('../dist/assets/european-water-town.glb',import.meta.url)),data=JSON.parse(glb.toString('utf8',20,20+glb.readUInt32LE(12)));
+assert.ok(data.materials.some(m=>m.name==='MAT_Paper_Waterfall'),'moving waterfall uses native exported geometry');
+console.log('PASS two closed mouths, open main estuary, 70 houses, civic plaza, 27 source-authored lamps and downhill mountain spring');

@@ -1,0 +1,27 @@
+{
+  "pack": "Kenney Fantasy Town Kit 2.0 + Watercraft",
+  "license": "CC0",
+  "source": "https://kenney.nl/assets/fantasy-town-kit",
+  "watercraft_source": "https://kenney.nl/assets/watercraft-kit",
+  "usage": {
+    "fountain-round-detail": 3,
+    "stall-bench": 8,
+    "stall-red": 3,
+    "stall-green": 3,
+    "cart": 2,
+    "cart-high": 2,
+    "tree-high-round": 2,
+    "fence": 2,
+    "lantern": 7,
+    "wall-wood-window-shutters": 6,
+    "wall-wood-doorway-round": 1,
+    "wall-wood-detail-cross": 2,
+    "stairs-wood": 1,
+    "watermill": 1,
+    "boat-sail-a": 2,
+    "boat-sail-b": 2,
+    "boat-fishing-small": 2,
+    "boat-row-large": 2
+  },
+  "optimization": "Blender atlas swatches remapped to shared paper palette and merged by material"
+}

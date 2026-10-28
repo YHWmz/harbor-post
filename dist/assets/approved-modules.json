@@ -1,0 +1,30 @@
+{
+  "Island": {
+    "source_objects": 1,
+    "triangles": 24
+  },
+  "PostOffice": {
+    "source_objects": 15,
+    "triangles": 537
+  },
+  "Cottage": {
+    "source_objects": 15,
+    "triangles": 537
+  },
+  "Lighthouse": {
+    "source_objects": 21,
+    "triangles": 816
+  },
+  "Workshop": {
+    "source_objects": 9,
+    "triangles": 289
+  },
+  "Pier": {
+    "source_objects": 52,
+    "triangles": 2288
+  },
+  "Crates": {
+    "source_objects": 3,
+    "triangles": 132
+  }
+}

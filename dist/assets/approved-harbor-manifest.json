@@ -1,0 +1,2453 @@
+{
+  "source_file": "harbor_expanded_v5.blend",
+  "source_scene": "Harbor_Expanded_v5",
+  "source_frame": 1,
+  "geometry_policy": "Evaluated meshes and curves copied directly; no replacement buildings or layout",
+  "boat_origin": [
+    -2.4,
+    0.03,
+    3.1
+  ],
+  "bridge_pivot": [
+    -4.95,
+    0.63,
+    -5.15
+  ],
+  "source_objects": [
+    {
+      "name": "SM_V4_Quayside",
+      "triangles": 24,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.001",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.002",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.003",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.004",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.005",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.006",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.007",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.008",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.009",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.010",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.011",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.012",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.013",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.014",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.015",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.016",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.017",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.018",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.019",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.020",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.021",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.022",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.023",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.024",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.025",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.026",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPlank.027",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPiling",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PilingCap",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPiling.001",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PilingCap.001",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPiling.002",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PilingCap.002",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPiling.003",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PilingCap.003",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPiling.004",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PilingCap.004",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPiling.005",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PilingCap.005",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPiling.006",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PilingCap.006",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPiling.007",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PilingCap.007",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPiling.008",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PilingCap.008",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPiling.009",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PilingCap.009",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPiling.010",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PilingCap.010",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PierPiling.011",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PilingCap.011",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Walkway",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Walkway.001",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Walkway.002",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Walkway.003",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Walkway.004",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PostOfficeWall",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PostOfficeRoof",
+      "triangles": 12,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PostOfficeRoof.001",
+      "triangles": 12,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PostOfficeGable",
+      "triangles": 1,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PostOfficeDoor",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PostOfficeDoorInset",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PostOfficeDoorknob",
+      "triangles": 28,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PostOfficeWindowFrame",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PostOfficeWindow",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PostOfficeMullion",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PostOfficeCrossbar",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PostOfficeSill",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PostOfficeSideWindow",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PostOfficePlinth",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_PostOfficeChimney",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_CottageWall",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_CottageRoof",
+      "triangles": 12,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_CottageRoof.001",
+      "triangles": 12,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_CottageGable",
+      "triangles": 1,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_CottageDoor",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_CottageDoorInset",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_CottageDoorknob",
+      "triangles": 28,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_CottageWindowFrame",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_CottageWindow",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_CottageMullion",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_CottageCrossbar",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_CottageSill",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_CottageSideWindow",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_CottagePlinth",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_CottageChimney",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_SignBracket",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_MailSign",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Envelope",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_MailboxPost",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Mailbox",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_MailSlot",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_LighthouseBase",
+      "triangles": 60,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_LighthouseTower",
+      "triangles": 60,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_LighthouseStripe",
+      "triangles": 60,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_LighthouseBalcony",
+      "triangles": 60,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Lantern",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_LanternFrame",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_LanternFrame.001",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_LanternFrame.002",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_LanternFrame.003",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_LanternFrame.004",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_LanternFrame.005",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_LighthouseCap",
+      "triangles": 60,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Railing",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Railing.001",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Railing.002",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Railing.003",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Railing.004",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Railing.005",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Railing.006",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Railing.007",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_MailCrate",
+      "triangles": 44,
+      "group": "ApprovedMailboat"
+    },
+    {
+      "name": "SM_V4_Barrel",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Barrel.001",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_ShoreRock",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_ShoreRock.001",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_ShoreRock.002",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_ShoreRock.003",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_ShoreRock.004",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_ShoreRock.005",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_ShoreRock.006",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_ShoreRock.007",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_ShoreRock.008",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_ShoreRock.009",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Shrub",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Shrub.001",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Shrub.002",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Shrub.003",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Shrub.004",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Shrub.005",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Shrub.006",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Shrub.007",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V4_Shrub.008",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_RepairIsland",
+      "triangles": 28,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_WorkshopWall",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_WorkshopGable",
+      "triangles": 1,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_WorkshopRoof",
+      "triangles": 12,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_WorkshopRoof.001",
+      "triangles": 12,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_WorkshopEntrance",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_WorkshopDoorFrame",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_WorkshopDoorFrame.001",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_WorkshopDoorLintel",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_WorkshopWindow",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_RepairSign",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_RepairEnvelope",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_SlipwayPlank",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_SlipwayPlank.001",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_SlipwayPlank.002",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_SlipwayPlank.003",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_SlipwayPlank.004",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_SlipwayPlank.005",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_SlipwayPlank.006",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_SlipwayPlank.007",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_SlipwayPlank.008",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_SlipwayPlank.009",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_SlipwayPlank.010",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_SlipwayPlank.011",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_SlipwayRail",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_SlipwayRail.001",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_HoistUpright",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_HoistUpright.001",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_HoistCrossbar",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_RepairCrate",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_RepairCrate.001",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_RepairCrate.002",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_SparePlanks",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_SparePlanks.001",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_SparePlanks.002",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_SparePlanks.003",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_RepairLanding",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_RepairLanding.001",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_RepairLanding.002",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_RepairLanding.003",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_RepairLanding.004",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_RepairLanding.005",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_RepairDockPost",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_RepairDockPost.001",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_LiftBridgePlank",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_LiftBridgePlank.001",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_LiftBridgePlank.002",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_LiftBridgePlank.003",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_LiftBridgePlank.004",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_LiftBridgePlank.005",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_LiftBridgePlank.006",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_LiftBridgePlank.007",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_LiftBridgePlank.008",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_LiftBridgePlank.009",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_LiftBridgePlank.010",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_LiftBridgePlank.011",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_LiftBridgePlank.012",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_LiftBridgePlank.013",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_LiftBridgePlank.014",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_LiftBridgePlank.015",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_LiftBridgePlank.016",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_LiftBridgePlank.017",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_LiftBridgeBeam",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_BridgeRailPost",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_BridgeRailPost.001",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_BridgeRailPost.002",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_BridgeRailPost.003",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_BridgeHandrail",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_LiftBridgeBeam.001",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_BridgeRailPost.004",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_BridgeRailPost.005",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_BridgeRailPost.006",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_BridgeRailPost.007",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_BridgeHandrail.001",
+      "triangles": 44,
+      "group": "ApprovedLiftBridge"
+    },
+    {
+      "name": "SM_V5_BridgeBankPier",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_BridgeBankPier.001",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_BridgeBankPier.002",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_BridgeBankPier.003",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_BridgeMechanism",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_HingeTower",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_HingeTower.001",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_MarketPole",
+      "triangles": 28,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_MarketPole.001",
+      "triangles": 28,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_MarketPole.002",
+      "triangles": 28,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_MarketPole.003",
+      "triangles": 28,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_AwningStripe",
+      "triangles": 4,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_AwningStripe.001",
+      "triangles": 4,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_AwningStripe.002",
+      "triangles": 4,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_AwningStripe.003",
+      "triangles": 4,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_AwningStripe.004",
+      "triangles": 4,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_AwningStripe.005",
+      "triangles": 4,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_AwningStripe.006",
+      "triangles": 4,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_AwningStripe.007",
+      "triangles": 4,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_MarketCounter",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_MarketTray",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_MarketTray.001",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_MarketTray.002",
+      "triangles": 44,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_Pennant",
+      "triangles": 1,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_Pennant.001",
+      "triangles": 1,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_Pennant.002",
+      "triangles": 1,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_Pennant.003",
+      "triangles": 1,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_Pennant.004",
+      "triangles": 1,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_Pennant.005",
+      "triangles": 1,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_Pennant.006",
+      "triangles": 1,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_RepairRock",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_RepairRock.001",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_RepairRock.002",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_RepairRock.003",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_V5_RepairRock.004",
+      "triangles": 20,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_QuayLip",
+      "triangles": 56,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_StoneJoint",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_StoneJoint.001",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_StoneJoint.002",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_StoneJoint.003",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_StoneJoint.004",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_StoneJoint.005",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Woodgrain",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Woodgrain.001",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Woodgrain.002",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Woodgrain.003",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Woodgrain.004",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Woodgrain.005",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Woodgrain.006",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Woodgrain.007",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Woodgrain.008",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Woodgrain.009",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Woodgrain.010",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Woodgrain.011",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Woodgrain.012",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Woodgrain.013",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_RoofEave",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_TileSeam",
+      "triangles": 72,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_TileSeam.001",
+      "triangles": 72,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_TileSeam.002",
+      "triangles": 72,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_TileSeam.003",
+      "triangles": 72,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_RoofEave.001",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_TileSeam.004",
+      "triangles": 72,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_TileSeam.005",
+      "triangles": 72,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_TileSeam.006",
+      "triangles": 72,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_TileSeam.007",
+      "triangles": 72,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_ChimneyBricks",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_ChimneyBricks.001",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_ChimneyBricks.002",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_ChimneyBricks.003",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_RoofEave.002",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_TileSeam.008",
+      "triangles": 72,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_TileSeam.009",
+      "triangles": 72,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_TileSeam.010",
+      "triangles": 72,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_TileSeam.011",
+      "triangles": 72,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_RoofEave.003",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_TileSeam.012",
+      "triangles": 72,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_TileSeam.013",
+      "triangles": 72,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_TileSeam.014",
+      "triangles": 72,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_TileSeam.015",
+      "triangles": 72,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_ChimneyBricks.004",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_ChimneyBricks.005",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_ChimneyBricks.006",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_ChimneyBricks.007",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_SignChain",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_SignChain.001",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_EnvelopeV",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_BalconyRail",
+      "triangles": 192,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Mooring",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_BarrelBand",
+      "triangles": 128,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_BarrelBand.001",
+      "triangles": 128,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_BarrelBand.002",
+      "triangles": 128,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_BarrelBand.003",
+      "triangles": 128,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.001",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.002",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.003",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.004",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.005",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.006",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.007",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.008",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.009",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.010",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.011",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.012",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.013",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.014",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.015",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.016",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.017",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.018",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.019",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.020",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.021",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.022",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.023",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.024",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.025",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.026",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.027",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.028",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.029",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.030",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.031",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.032",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.033",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.034",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.035",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.036",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.037",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.038",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.039",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.040",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.041",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.042",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.043",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.044",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.045",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.046",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.047",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.048",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.049",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.050",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.051",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.052",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.053",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.054",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.055",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.056",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.057",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.058",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.059",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.060",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.061",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.062",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.063",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.064",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.065",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.066",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.067",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.068",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.069",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.070",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.071",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.072",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.073",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.074",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.075",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.076",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.077",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.078",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.079",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.080",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.081",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.082",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.083",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.084",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.085",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.086",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.087",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WaterStroke.088",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Wake",
+      "triangles": 600,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Wake.001",
+      "triangles": 600,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Wake.002",
+      "triangles": 600,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Wake.003",
+      "triangles": 600,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Gull",
+      "triangles": 32,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Gull.001",
+      "triangles": 32,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_Gull.002",
+      "triangles": 32,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_RepairIslandLip",
+      "triangles": 64,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WorkshopRoofSeam",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WorkshopRoofSeam.001",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WorkshopRoofSeam.002",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WorkshopRoofSeam.003",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WorkshopRoofSeam.004",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WorkshopRoofSeam.005",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WorkshopRoofSeam.006",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WorkshopRoofSeam.007",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WorkshopRoofSeam.008",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WorkshopRoofSeam.009",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_WorkshopMullion",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_ShedBoards",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_ShedBoards.001",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_ShedBoards.002",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_ShedBoards.003",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_ShedBoards.004",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_ShedBoards.005",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_RepairEnvelopeFold",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_HoistRope",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_CrateBrace",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_CrateBrace.001",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_CrateBrace.002",
+      "triangles": 8,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_BuntingRope",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.001",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.002",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.003",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.004",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.005",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.006",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.007",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.008",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.009",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.010",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.011",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.012",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.013",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.014",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.015",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.016",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.017",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.018",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.019",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.020",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.021",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.022",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.023",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.024",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.025",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.026",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.027",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.028",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.029",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.030",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.031",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.032",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.033",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.034",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.035",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.036",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.037",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.038",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.039",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.040",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.041",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.042",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.043",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.044",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.045",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.046",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.047",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.048",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.049",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.050",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "INK_OuterWaterStroke.051",
+      "triangles": 16,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_Kenney_Mailboat_LOD0",
+      "triangles": 237,
+      "group": "ApprovedMailboat"
+    },
+    {
+      "name": "SM_Kenney_Buoy",
+      "triangles": 118,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_Kenney_RepairRowboat",
+      "triangles": 112,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_Kenney_SpareOars",
+      "triangles": 56,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_Kenney_ChannelBuoy_0",
+      "triangles": 118,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_Kenney_ChannelBuoy_1",
+      "triangles": 118,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_Kenney_ChannelBuoy_2",
+      "triangles": 118,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_Kenney_ChannelBuoy_3",
+      "triangles": 118,
+      "group": "HarborStatic"
+    },
+    {
+      "name": "SM_Kenney_ChannelBuoy_4",
+      "triangles": 118,
+      "group": "HarborStatic"
+    }
+  ],
+  "camera": {
+    "position": [
+      16,
+      21,
+      26
+    ],
+    "target": [
+      -1.7,
+      1,
+      -2
+    ],
+    "orthographic_width": 30
+  },
+  "triangles": 17411,
+  "batch_meshes": 14
+}

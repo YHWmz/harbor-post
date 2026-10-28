@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/
+*.log
+__pycache__/
+*.pyc
+*.blend1
+*.blend2
+.wrangler/
+.env
+.env.*

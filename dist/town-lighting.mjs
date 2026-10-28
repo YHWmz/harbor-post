@@ -1,0 +1,9 @@
+import * as THREE from 'three';
+import {STREET_LAMPS} from './world.mjs';
+// Positions and elevations come from the Blender lamps, including the cliff road.
+export function createTownLighting(scene){
+ const canvas=document.createElement('canvas');canvas.width=canvas.height=64;const g=canvas.getContext('2d'),gradient=g.createRadialGradient(32,32,0,32,32,32);gradient.addColorStop(0,'rgba(255,224,154,.9)');gradient.addColorStop(.24,'rgba(255,211,128,.45)');gradient.addColorStop(1,'rgba(255,211,128,0)');g.fillStyle=gradient;g.fillRect(0,0,64,64);const map=new THREE.CanvasTexture(canvas);map.colorSpace=THREE.SRGBColorSpace;
+ const glows=STREET_LAMPS.map(p=>{const halo=new THREE.Sprite(new THREE.SpriteMaterial({map,transparent:true,depthWrite:false,opacity:0,blending:THREE.AdditiveBlending}));halo.position.set(p.x,p.y,p.z);halo.scale.set(1.55,1.55,1);scene.add(halo);const pool=new THREE.Mesh(new THREE.PlaneGeometry(5.5,5.5),new THREE.MeshBasicMaterial({map,transparent:true,depthWrite:false,opacity:0,blending:THREE.AdditiveBlending}));pool.rotation.x=-Math.PI/2;pool.position.set(p.x,p.ground+.06,p.z);scene.add(pool);return {halo,pool};});
+ const lights=Array.from({length:6},()=>{const l=new THREE.PointLight('#ffd28b',0,8,1.7);scene.add(l);return l;});let timer=0,nearest=[];
+ return {update(dt,night,focus){const strength=THREE.MathUtils.smoothstep(night,.08,.85);glows.forEach(({halo,pool})=>{halo.visible=pool.visible=strength>.005;halo.material.opacity=strength*.68;pool.material.opacity=strength*.33;});timer-=dt;if(timer<=0){timer=.65;nearest=STREET_LAMPS.map(p=>({p,d:(p.x-focus.x)**2+(p.z-focus.z)**2+(p.y-focus.y)**2})).sort((a,b)=>a.d-b.d).slice(0,6);}lights.forEach((l,i)=>{const entry=nearest[i];if(entry){l.position.set(entry.p.x,entry.p.y,entry.p.z);l.intensity=entry.d<42**2?strength*8:0;}});}};
+}
