@@ -23,3 +23,5 @@ nav button#pauseBtn{display:block;width:36px;height:36px;font-size:18px;backgrou
 #world canvas:focus{outline:none}
 
 .coach-mode .steering{display:none}
+
+.walk-toggle{position:fixed;bottom:58px;right:24px;pointer-events:auto;border:1px solid #a4a28a;background:#eee6d1df;color:#4b5c50;padding:9px 15px;border-radius:20px;font:13px serif}.walk-toggle:disabled{opacity:.55}.walk-toggle.hidden{display:none}#strollStart{display:block;margin:12px auto 0} @media(max-width:700px){.walk-toggle{bottom:146px;right:16px}}
