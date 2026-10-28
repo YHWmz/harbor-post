@@ -359,6 +359,17 @@ for a,c,d,f in [(-35,-21,43,51),(21,35,46,55)]:
  for j,(x,z) in enumerate(outline):
   xx,zz=outline[(j+1)%len(outline)];add([(x,-.22,z),(xx,-.22,zz),(xx,.35,zz),(x,.35,z)],[(0,1,2,3)],'Meadow')
  road_strip((a+c)/2,(d+f)/2,c-a-1,1.4)
+# Close the two mountain-side lateral sea outlets shown in the reference screenshots.
+# Each infill overlaps both original shores; topology and collision share one sampled polygon.
+northern_closures=[]
+for a,c,d,f in [(-104,-74,-34,-17),(74,104,-34,-17)]:
+ outline=rounded(a,c,d,f,3);poly=[river(x,z) for x,z in outline]
+ bank=dict(name='NorthernClosure',polygon=poly,minX=min(v[0] for v in poly),maxX=max(v[0] for v in poly),minZ=min(v[1] for v in poly),maxZ=max(v[1] for v in poly));banks.append(bank);northern_closures.append(bank)
+ coords=[Vector((*v,0)) for v in poly];lookup={tuple(v):i for i,v in enumerate(coords)}
+ faces=[tuple(v if isinstance(v,int) else lookup[tuple(v)] for v in t) for t in tessellate_polygon([coords])]
+ add([(x,.35,z) for x,z in outline],faces,'Meadow')
+ for j,(x,z) in enumerate(outline):
+  xx,zz=outline[(j+1)%len(outline)];add([(x,-.22,z),(xx,-.22,zz),(xx,.35,zz),(x,.35,z)],[(0,1,2,3)],'Meadow')
 # Additional houses extend the inhabited town along real side streets.
 for side in [-1,1]:
  for lo,hi in [(-20.5,-5.5),(5.5,20.5),(29.5,43)]:
@@ -694,8 +705,12 @@ for i in [12,62,112,162,215,272]:
   qx,qz=river(bx,bz);bx+=wx-qx;bz+=wz-qz
  street_lamp(bx+2.15,bz,point['y'])
 detail_counts['street_lamps']=len(street_lamps)
+# Additional native civic and garden districts have an independent mesh budget/export.
+saved_district_buckets=buckets;buckets={}
+exec(compile((P/'tools/build_civic_districts.py').read_text(),str(P/'tools/build_civic_districts.py'),'exec'),globals())
+district_buckets=buckets;buckets=saved_district_buckets
 # Create final Blender meshes by material; no duplicated production geometry is generated at runtime.
-for prefix,name,(verts,faces) in [('Town',k,v) for k,v in buckets.items()]+[('Castle',k,v) for k,v in castle_buckets.items()]+[('HarborBoat'+str(i),k,v) for i,b in harbor_buckets for k,v in b.items()]:
+for prefix,name,(verts,faces) in [('District',k,v) for k,v in district_buckets.items()]+[('Town',k,v) for k,v in buckets.items()]+[('Castle',k,v) for k,v in castle_buckets.items()]+[('HarborBoat'+str(i),k,v) for i,b in harbor_buckets for k,v in b.items()]:
  me=bpy.data.meshes.new(('GEO_' if prefix=='Town' else 'GEO_'+prefix+'_')+name);me.from_pydata(verts,[],faces);me.update();me.materials.append(materials[name]);o=bpy.data.objects.new('SM_'+prefix+'_'+name,me);col.objects.link(o)
  # Recalculate normals on the native mesh before GLB export.
  import bmesh
@@ -736,12 +751,18 @@ detail_counts.update(approved_piers=2,approved_lighthouse=1,extra_riparian_trees
 base_stops=[dict(name='运河邮局',person='艾琳',x=1.7,z=7.3,stamp='邮',letter='一封家书',message='艾琳推开沿河的小窗：「孩子说，春天就回来。」'),dict(name='花园温室',person='米拉',x=16,z=0,stamp='花',letter='一封春日来信',message='米拉放下水壶，拆开远方寄来的种子清单。'),dict(name='北街面包房',person='奥利弗',x=28,z=-34,stamp='麦',letter='一封归家的信',message='面包香沿着运河飘来。奥利弗看见了姐姐熟悉的字迹。'),dict(name='柳岸水磨坊',person='卢卡',x=-28,z=-15,stamp='轮',letter='一封老友的信',message='水车慢慢转着。卢卡说，下次给你留一袋新磨的面粉。'),dict(name='南岸果园',person='诺亚',x=-14,z=25,stamp='叶',letter='一封远方的信',message='诺亚在树下读信，夕阳落在弯弯的河面。')]
 base_stops.append(dict(base_stops[0],letter='返航交班',message='五封信都送到了。今天的邮路完成了。'))
 stops=[dict(s,x=river(s['x'],s['z'])[0],z=river(s['x'],s['z'])[1]) for s in base_stops];sp=river(1.7,3.5)
-nav={'source':'european-water-town.blend','banks':banks,'stops':stops,'spawn':dict(x=sp[0],z=sp[1],heading=heading(1.7,3.5),speed=0),'carriage':carriage,'water_rocks':water_rocks,'street_lamps':street_lamps,'water_source':water_source,'alpine_peaks':alpine_peaks,'estuary_count':1,'plaza':dict(x=river(43,13)[0],z=river(43,13)[1]),'coastal_closures':coastal_closures,'docks':docks,'harbor_boats':harbor_boats,'details':detail_counts,'public_assets':public_usage,'landmarks':[castle_landmark,*sea_landmarks],'architecture':architecture_counts,'roads':roads,'bounds':dict(minX=-85,maxX=85,minZ=-104,maxZ=112)}
+nav={'source':'european-water-town.blend','banks':banks,'stops':stops,'spawn':dict(x=sp[0],z=sp[1],heading=heading(1.7,3.5),speed=0),'carriage':carriage,'water_rocks':water_rocks,'street_lamps':street_lamps,'water_source':water_source,'alpine_peaks':alpine_peaks,'estuary_count':1,'plaza':dict(x=river(43,13)[0],z=river(43,13)[1]),'coastal_closures':coastal_closures,'northern_closures':northern_closures,'district_features':district_features,'docks':docks,'harbor_boats':harbor_boats,'details':detail_counts,'public_assets':public_usage,'landmarks':[castle_landmark,*sea_landmarks],'architecture':architecture_counts,'roads':roads,'bounds':dict(minX=-85,maxX=85,minZ=-104,maxZ=112)}
 ASSET.mkdir(parents=True,exist_ok=True);(ASSET/'public-assets.json').write_text(json.dumps(dict(pack='Kenney Fantasy Town Kit 2.0 + Watercraft',license='CC0',source='https://kenney.nl/assets/fantasy-town-kit',watercraft_source='https://kenney.nl/assets/watercraft-kit',usage=public_usage,optimization='Blender atlas swatches remapped to shared paper palette and merged by material'),ensure_ascii=False,indent=2));(ASSET/'town-navigation.json').write_text(json.dumps(nav,ensure_ascii=False,separators=(',',':')))
 world='// GENERATED BY Blender: tools/build_european_town.py. Do not edit production topology here.\nconst NAV='+json.dumps(nav,ensure_ascii=False,separators=(',',':'))+';\nexport const WORLD_BOUNDS=NAV.bounds,BANKS=NAV.banks,STOPS=NAV.stops,SPAWN=NAV.spawn,DELIVERY_COUNT=STOPS.length-1,DOCKS=[];\nexport const BRIDGE={minX:200,maxX:201,minZ:200,maxZ:201};\nexport const STREET_LAMPS=NAV.street_lamps,WATER_SOURCE=NAV.water_source;\nexport const CARRIAGE=NAV.carriage;\nexport const LANDMARKS=NAV.landmarks;\nexport const MAP_REGIONS=[...STOPS.slice(0,5),...LANDMARKS];\n'
 (ASSET.parent/'world.mjs').write_text(world)
 # QA gate before export: finite vertices, valid faces, budget, material consistency.
-meshes=[o for o in scene.objects if o.type=='MESH'];tris=0
+meshes=[o for o in scene.objects if o.type=='MESH' and not o.name.startswith('SM_District_')];tris=0
+district_meshes=[o for o in scene.objects if o.type=='MESH' and o.name.startswith('SM_District_')]
+district_tris=0
+for o in district_meshes:
+ o.data.calc_loop_triangles();district_tris+=len(o.data.loop_triangles)
+ assert all(math.isfinite(c) for v in o.data.vertices for c in v.co)
+assert district_tris<28000,('district budget exceeded',district_tris)
 for o in meshes:
  o.data.calc_loop_triangles();tris+=len(o.data.loop_triangles)
  assert all(math.isfinite(c) for v in o.data.vertices for c in v.co),'Non-finite geometry'
@@ -756,6 +777,11 @@ scene.world=bpy.data.worlds.new('PaperWorld');scene.world.color=(.45,.5,.42);sce
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'european-water-town.blend'))
 bpy.ops.object.select_all(action='DESELECT')
 for o in scene.objects:
- if o.type=='MESH' and o.name!='SM_Water_SourcePreview':o.select_set(True)
+ if o.type=='MESH' and o.name!='SM_Water_SourcePreview' and not o.name.startswith('SM_District_'):o.select_set(True)
 bpy.ops.export_scene.gltf(filepath=str(ASSET/'european-water-town.glb'),export_format='GLB',use_selection=True,export_cameras=False,export_lights=False,export_animations=False)
-audit={'triangles':tris,'mesh_objects':len(meshes),'materials':len({m.name for o in meshes for m in o.data.materials if m}),'source':'european-water-town.blend','navigation':'town-navigation.json','architecture':architecture_counts,'road_segments':len(roads),'carriage':carriage,'water_rocks':water_rocks,'street_lamps':street_lamps,'water_source':water_source,'alpine_peaks':alpine_peaks,'estuary_count':1,'plaza':dict(x=river(43,13)[0],z=river(43,13)[1]),'coastal_closures':coastal_closures,'docks':docks,'harbor_boats':harbor_boats,'details':detail_counts,'public_assets':public_usage,'landmarks':[castle_landmark,*sea_landmarks],'validation':'finite geometry and triangle budget pass'};(OUT/'european-water-town-audit.json').write_text(json.dumps(audit,indent=2));print('TOWN_AUDIT',audit)
+bpy.ops.object.select_all(action='DESELECT')
+for o in district_meshes:o.select_set(True)
+bpy.ops.export_scene.gltf(filepath=str(ASSET/'civic-districts.glb'),export_format='GLB',use_selection=True,export_cameras=False,export_lights=False,export_animations=False)
+(ASSET/'civic-districts.json').write_text(json.dumps(dict(triangles=district_tris,features=district_features,northern_closures=northern_closures),ensure_ascii=False,indent=2))
+print('DISTRICT_AUDIT',district_tris,'triangles',len(district_features),'features')
+audit={'triangles':tris,'district_triangles':district_tris,'mesh_objects':len(meshes),'materials':len({m.name for o in meshes for m in o.data.materials if m}),'source':'european-water-town.blend','navigation':'town-navigation.json','architecture':architecture_counts,'road_segments':len(roads),'carriage':carriage,'water_rocks':water_rocks,'street_lamps':street_lamps,'water_source':water_source,'alpine_peaks':alpine_peaks,'estuary_count':1,'plaza':dict(x=river(43,13)[0],z=river(43,13)[1]),'coastal_closures':coastal_closures,'northern_closures':northern_closures,'district_features':district_features,'docks':docks,'harbor_boats':harbor_boats,'details':detail_counts,'public_assets':public_usage,'landmarks':[castle_landmark,*sea_landmarks],'validation':'finite geometry and triangle budget pass'};(OUT/'european-water-town-audit.json').write_text(json.dumps(audit,indent=2));print('TOWN_AUDIT',audit)

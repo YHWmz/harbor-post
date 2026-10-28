@@ -43,12 +43,13 @@ const wake=[];for(let i=0;i<14;i++){const o=new THREE.Mesh(new THREE.RingGeometr
 const targetRing=new THREE.Mesh(new THREE.RingGeometry(.62,.65,40),new THREE.MeshBasicMaterial({color:'#e7bc75',transparent:true,opacity:.55,side:THREE.DoubleSide,depthWrite:false}));targetRing.rotation.x=-Math.PI/2;targetRing.position.y=-.14;scene.add(targetRing);
 function textSprite(text){const c=document.createElement('canvas');c.width=128;c.height=128;const ctx=c.getContext('2d');ctx.fillStyle='#eee5ce';ctx.beginPath();ctx.arc(64,64,42,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#ad7951';ctx.lineWidth=2;ctx.stroke();ctx.fillStyle='#966345';ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='45px serif';ctx.fillText(text,64,64);const tx=new THREE.CanvasTexture(c);tx.colorSpace=THREE.SRGBColorSpace;const s=new THREE.Sprite(new THREE.SpriteMaterial({map:tx,transparent:true,depthTest:false}));s.scale.set(.8,.8,1);return s;}
 const pin=textSprite('✉');pin.userData.skipReflection=true;targetRing.userData.skipReflection=true;for(const w of wake)w.o.userData.skipReflection=true;scene.add(pin);
-let modulesReady=false,town;const cameraOccluders=[];const cameraRay=new THREE.Raycaster();let cameraCheck=0,cameraClearance=40,coachCameraSide=1;
+let districtsReady=false,districts;let modulesReady=false,town;const cameraOccluders=[];const cameraRay=new THREE.Raycaster();let cameraCheck=0,cameraClearance=40,coachCameraSide=1;
 new GLTFLoader().load('./assets/european-water-town.glb',gltf=>{
  town=buildTown(scene,gltf.scene);gltf.scene.traverse(o=>{if(o.isMesh&&!/Glass|Leaf|Flowers|WaterWash|Ink/.test(o.material?.name||''))cameraOccluders.push(o);});modulesReady=true;checkReady();
 },undefined,e=>{console.error(e);$('loadingText').textContent='运河街区加载失败，请刷新重试';});
 
-function checkReady(){if(modelReady&&modulesReady&&coachReady){$('startBtn').disabled=false;$('startBtn').style.opacity='1';$('loadingText').textContent='小镇已就绪 · 马车等在悬崖码头';}}
+new GLTFLoader().load('./assets/civic-districts.glb',g=>{districts=buildTown(scene,g.scene);g.scene.traverse(o=>{if(o.isMesh&&!/Glass|Leaf|Flowers|Ink/.test(o.material?.name||''))cameraOccluders.push(o);});districtsReady=true;checkReady();},undefined,e=>{console.error(e);$('loadingText').textContent='湖畔街区加载失败，请刷新重试';});
+function checkReady(){if(modelReady&&modulesReady&&coachReady&&districtsReady){$('startBtn').disabled=false;$('startBtn').style.opacity='1';$('loadingText').textContent='小镇已就绪 · 马车等在悬崖码头';}}
 // Game state and compact persistent delivery progress.
 let restored={index:0};try{restored=restoreProgress(JSON.parse(localStorage.getItem('blender-canal-post-v6')));}catch{}
 let index=restored.index,state={...SPAWN},started=false,paused=false,dialogOpen=false,complete=index>DELIVERY_COUNT,night=0,nightTarget=0,zoom=15,toastTimer=0;
@@ -135,7 +136,7 @@ const quietHint=document.createElement('p');quietHint.className='quiet-hint';qui
 const originalTarget=new THREE.Vector3(-8,20,-36),cameraTarget=originalTarget.clone(),cameraOffset=new THREE.Vector3(3,20,32),sunDay=new THREE.Color('#ffe9cd'),sunNight=new THREE.Color('#b4c6ce'),hemiDay=new THREE.Color('#f4e6ce'),hemiNight=new THREE.Color('#7f949c');let weatherWet=0;let cameraHeading=SPAWN.heading;let last=performance.now(),t=0,uiTimer=0,lastHitToast=-10;
 function resize(){renderer.setSize(innerWidth,innerHeight);chaseCamera.aspect=innerWidth/innerHeight;chaseCamera.fov=innerWidth<innerHeight?62:52;chaseCamera.updateProjectionMatrix();}addEventListener('resize',resize);resize();updateQuest();
 function animate(now){requestAnimationFrame(animate);const dt=Math.min(.05,(now-last)/1000);last=now;t+=dt;const active=started&&!paused&&!dialogOpen&&!mapExpanded;
- if(town)town.update(dt,night);const nearBridge=true;const open=manualBridge||nearBridge;bridgeAmount+=(Number(open)-bridgeAmount)*Math.min(1,dt*1.3);if(bridge)bridge.rotation.z=70*Math.PI/180*bridgeAmount;
+ if(town)town.update(dt,night);if(districts)districts.update(dt,night);const nearBridge=true;const open=manualBridge||nearBridge;bridgeAmount+=(Number(open)-bridgeAmount)*Math.min(1,dt*1.3);if(bridge)bridge.rotation.z=70*Math.PI/180*bridgeAmount;
  if(active&&!aboard){state=stepBoat(state,input,dt,obstacles(bridgeAmount>.89),speedScale);if(state.hit&&t-lastHitToast>4){toast('留意浅滩与岸边 · 转舵或倒船避让');lastHitToast=t;}}
  if(active&&aboard)coach=stepCarriage(coach,input,dt);const focus=aboard?carriagePose(coach):{...state,y:0};if(coachView)coachView.update(dt,carriagePose(coach),aboard?coach.speed:0);
  boat.position.set(state.x,Math.sin(t*1.6)*.018,state.z);boat.rotation.set(0,state.heading-BOAT_FORWARD,Math.sin(t*1.7)*.006);
