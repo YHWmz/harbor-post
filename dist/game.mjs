@@ -119,7 +119,7 @@ function drawMap(){const c=mc,scale=1.12,xx=x=>180+x*scale,zz=z=>130+z*scale;c.s
  const marker=aboard?carriagePose(coach):state;c.save();c.translate(xx(marker.x),zz(marker.z));c.rotate(-marker.heading);c.fillStyle='#344e4b';c.beginPath();c.moveTo(0,7);c.lineTo(-4,-4);c.lineTo(0,-2);c.lineTo(4,-4);c.closePath();c.fill();c.restore();
 }
 function limitZoom(value){return clamp(value,follow?9:4.5,follow?32:165);}
-let follow=true;const viewButton=document.createElement('button');viewButton.id='viewBtn';viewButton.textContent='跟船';viewButton.setAttribute('aria-label','切换全景或跟随当前交通工具');document.querySelector('nav').prepend(viewButton);viewButton.onclick=()=>{follow=!follow;zoom=follow?15:135;viewButton.textContent=follow?(aboard?'跟车':'跟船'):'全景';};
+let follow=true;const viewButton=document.createElement('button');viewButton.id='viewBtn';viewButton.textContent='跟船';viewButton.setAttribute('aria-label','切换全景或跟随当前交通工具');document.querySelector('nav').prepend(viewButton);viewButton.onclick=()=>{follow=!follow;zoom=follow?15:160;viewButton.textContent=follow?(aboard?'跟车':'跟船'):'全景';};
 // One quiet menu contains secondary controls; the scene stays clear while sailing.
 const settings=document.createElement('div');settings.className='settings';$('pauseOverlay').querySelector('section').insertBefore(settings,$('resumeBtn'));
 for(const id of ['viewBtn','timeBtn','soundBtn','mapToggle'])settings.appendChild($(id));
@@ -132,7 +132,7 @@ $('pauseBtn').textContent='☰';$('pauseBtn').setAttribute('aria-label','打开�
 $('mapToggle').textContent='河道图 M';$('mapToggle').setAttribute('aria-expanded','false');
 $('mapPanel').classList.add('hidden');
 const quietHint=document.createElement('p');quietHint.className='quiet-hint';quietHint.textContent='W/S 行舟 · A/D 转舵 · 空格刹船';document.querySelector('.bottom-hud').appendChild(quietHint);
-const originalTarget=new THREE.Vector3(-12,12,-12),cameraTarget=originalTarget.clone(),cameraOffset=new THREE.Vector3(3,20,32),sunDay=new THREE.Color('#ffe9cd'),sunNight=new THREE.Color('#b4c6ce'),hemiDay=new THREE.Color('#f4e6ce'),hemiNight=new THREE.Color('#7f949c');let weatherWet=0;let cameraHeading=SPAWN.heading;let last=performance.now(),t=0,uiTimer=0,lastHitToast=-10;
+const originalTarget=new THREE.Vector3(-8,20,-36),cameraTarget=originalTarget.clone(),cameraOffset=new THREE.Vector3(3,20,32),sunDay=new THREE.Color('#ffe9cd'),sunNight=new THREE.Color('#b4c6ce'),hemiDay=new THREE.Color('#f4e6ce'),hemiNight=new THREE.Color('#7f949c');let weatherWet=0;let cameraHeading=SPAWN.heading;let last=performance.now(),t=0,uiTimer=0,lastHitToast=-10;
 function resize(){renderer.setSize(innerWidth,innerHeight);chaseCamera.aspect=innerWidth/innerHeight;chaseCamera.fov=innerWidth<innerHeight?62:52;chaseCamera.updateProjectionMatrix();}addEventListener('resize',resize);resize();updateQuest();
 function animate(now){requestAnimationFrame(animate);const dt=Math.min(.05,(now-last)/1000);last=now;t+=dt;const active=started&&!paused&&!dialogOpen&&!mapExpanded;
  if(town)town.update(dt,night);const nearBridge=true;const open=manualBridge||nearBridge;bridgeAmount+=(Number(open)-bridgeAmount)*Math.min(1,dt*1.3);if(bridge)bridge.rotation.z=70*Math.PI/180*bridgeAmount;

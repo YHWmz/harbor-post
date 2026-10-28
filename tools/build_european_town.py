@@ -1,6 +1,9 @@
 """Blender is the authoritative scene and navigation exporter. Run with Blender -b --python."""
 import bpy, math, random, json
 from pathlib import Path
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from alpine_terrain import PROFILE,PEAKS,center_x,channel_width,terrain_height,smooth
 from mathutils import Vector, Matrix
 from mathutils.geometry import tessellate_polygon
 P=Path(__file__).resolve().parents[1]
@@ -94,9 +97,10 @@ def foliage(x,y,z,r,mat='Leaf',stretch=1):
  add(vs,fs,mat)
 def tree(x,z,s=1,willow=False):
  if 34<x<52 and 6<z<20:return # Open civic plaza
- if 18<x<30 and z<-80:return # Mountain stream corridor
- tube((x,.35,z),(x,2.2*s,z),.1*s,'Wood');foliage(x,2.6*s,z,1.1*s,'Willow' if willow else 'Leaf',1.3 if willow else 1)
- for k in range(2):a=k*2.6;foliage(x+math.cos(a)*.65*s,2.0*s,z+math.sin(a)*.65*s,.65*s,'Leaf')
+ if -144<z<-80 and abs(x-center_x(z))<channel_width(z)+2.3:return # Shared mountain stream corridor
+ ground=max(0,terrain_height(x,z)-.35) if -32<x<108 and -174<z<-82 else 0
+ tube((x,.35+ground,z),(x,2.2*s+ground,z),.1*s,'Wood');foliage(x,2.6*s+ground,z,1.1*s,'Willow' if willow else 'Leaf',1.3 if willow else 1)
+ for k in range(2):a=k*2.6;foliage(x+math.cos(a)*.65*s,2.0*s+ground,z+math.sin(a)*.65*s,.65*s,'Leaf')
 def cylinder(x,y,z,r,h,mat,sides=12,top_r=None):
  tr=r if top_r is None else top_r
  vs=[(x+rr*math.cos(i*math.tau/sides),yy,z+rr*math.sin(i*math.tau/sides)) for yy,rr in [(y-h/2,r),(y+h/2,tr)] for i in range(sides)]
@@ -256,6 +260,9 @@ for name in watercraft_names:
 banks=[]
 for b in blocks:
  a,c,d,f=[b[k] for k in ['a','c','d','f']];outline=rounded(a,c,d,f,2.2 if b['park'] else 1.5)
+ # The northern land cap follows the same winding creek as the mountain height field.
+ if b['iz']==-1:
+  outline=[(min(x,center_x(z)-channel_width(z)-1.6) if b['ix']==4 else max(x,center_x(z)+channel_width(z)+1.6),z) for x,z in outline]
  # Shared curved lake shore: widen the upper tributaries into one mountain basin.
  if b['iz']==0 and b['ix'] in [1,3]:
   lake_outline=[]
@@ -368,25 +375,26 @@ for xx,zz in [(36.7,9.8),(49.3,16.2)]:
  cylinder(xx,.65,zz,.47,.55,'Stone');foliage(xx,1,zz,.5,'Flowers',.5)
 public_asset('stall-red',55,8.6,.85);public_asset('stall-green',55,17.4,.85,math.pi)
 detail_counts['central_plazas']=1
-# A native mountain spring, rocky cascades and a narrow stream open into the lake.
-source_controls=[(24,-112,11),(21,-108,9.7),(22,-104,8.5),(24,-101,7.1),(25,-97,5.9),(24,-94,4.5),(22,-90,3.4),(23,-86,1.8),(24,-82,.2),(24,-78,-.14)]
-ravine=[]
-for j,(x,z,y) in enumerate(source_controls):
- w=1.7+j*.12;outer=w*(1.9+.22*math.sin(j*2.1));peak=.4+.38*math.sin(j*2.7)**2
- ravine.extend([(x-outer,-.4,z),(x-outer,y-1.0,z),(x-w*1.3,y+peak,z),(x-w,y-.04,z),(x+w,y-.04,z),(x+w*1.35,y+peak*.8,z),(x+outer,y-1,z),(x+outer,-.4,z)])
-faces=[]
-for j in range(len(source_controls)-1):
- for k in range(7):faces.append((j*8+k,(j+1)*8+k,(j+1)*8+k+1,j*8+k+1))
-add(ravine,faces,'Stone')
-for j in range(len(source_controls)-1):
- x,z,y=source_controls[j];xx,zz,yy=source_controls[j+1];w=1.7+j*.12;ww=1.7+(j+1)*.12
+# Snowmelt flows on the exact valley floor of the adjacent alpine mountain mesh.
+# No standalone trough, vertical walls or raised channel supports.
+water_source=[]
+for p in PROFILE:
+ wx,wz=river(p['x'],p['z']);water_source.append(dict(x=wx,y=p['y']+.025,z=wz))
+for j in range(len(PROFILE)-1):
+ p,q=PROFILE[j:j+2];x,z,y=p['x'],p['z'],p['y']+.025;xx,zz,yy=q['x'],q['z'],q['y']+.025
+ w=p['width']*smooth(-142,-139,z)*.8;ww=q['width']*smooth(-142,-139,zz)*.8
  add([(x-w,y,z),(x+w,y,z),(xx+ww,yy,zz),(xx-ww,yy,zz)],[(0,1,2,3)],'Waterfall')
- for k in [-.52,.27,.71]:tube((x+k*w,y+.025,z),(xx+k*ww,yy+.025,zz),.025,'WaterWash',4)
-# Match the solid rocky cascade to its navigation obstruction at the lake head.
-outline=rounded(19,29,-105,-82,2);poly=[river(x,z) for x,z in outline]
+ # Discontinuous fine foam washes follow the current without ladder-like crossbars.
+ if j%3!=0:
+  for k in [-.38,.3]:
+   r=.035 if j<72 else .05
+   add([(x+k*w-r,y+.012,z),(x+k*w+r,y+.012,z),(xx+k*ww+r,yy+.012,zz),(xx+k*ww-r,yy+.012,zz)],[(0,1,2,3)],'WaterWash')
+# The lake head remains open water; uphill rock/creek bed is a solid navigation limit.
+left=[(p['x']-p['width']-1.4,p['z']) for p in PROFILE if p['z']<=-83]
+right=[(p['x']+p['width']+1.4,p['z']) for p in PROFILE if p['z']<=-83]
+poly=[river(x,z) for x,z in left+right[::-1]]
 banks.append(dict(name='MountainCascade',polygon=poly,minX=min(v[0] for v in poly),maxX=max(v[0] for v in poly),minZ=min(v[1] for v in poly),maxZ=max(v[1] for v in poly)))
-for xx,zz in [(18,-96),(29,-93),(18,-104),(29,-106)]:tree(xx,zz,1.2)
-water_source=[dict(x=river(x,z)[0],y=y,z=river(x,z)[1]) for x,z,y in source_controls]
+alpine_peaks=[dict(name=p['name'],x=river(p['x'],p['z'])[0],z=river(p['x'],p['z'])[1],y=terrain_height(p['x'],p['z'])) for p in PEAKS]
 # Streetlamps are authored in Blender; web lights use these exported head positions.
 street_lamps=[]
 def street_lamp(x,z,y=.4):
@@ -728,7 +736,7 @@ detail_counts.update(approved_piers=2,approved_lighthouse=1,extra_riparian_trees
 base_stops=[dict(name='运河邮局',person='艾琳',x=1.7,z=7.3,stamp='邮',letter='一封家书',message='艾琳推开沿河的小窗：「孩子说，春天就回来。」'),dict(name='花园温室',person='米拉',x=16,z=0,stamp='花',letter='一封春日来信',message='米拉放下水壶，拆开远方寄来的种子清单。'),dict(name='北街面包房',person='奥利弗',x=28,z=-34,stamp='麦',letter='一封归家的信',message='面包香沿着运河飘来。奥利弗看见了姐姐熟悉的字迹。'),dict(name='柳岸水磨坊',person='卢卡',x=-28,z=-15,stamp='轮',letter='一封老友的信',message='水车慢慢转着。卢卡说，下次给你留一袋新磨的面粉。'),dict(name='南岸果园',person='诺亚',x=-14,z=25,stamp='叶',letter='一封远方的信',message='诺亚在树下读信，夕阳落在弯弯的河面。')]
 base_stops.append(dict(base_stops[0],letter='返航交班',message='五封信都送到了。今天的邮路完成了。'))
 stops=[dict(s,x=river(s['x'],s['z'])[0],z=river(s['x'],s['z'])[1]) for s in base_stops];sp=river(1.7,3.5)
-nav={'source':'european-water-town.blend','banks':banks,'stops':stops,'spawn':dict(x=sp[0],z=sp[1],heading=heading(1.7,3.5),speed=0),'carriage':carriage,'water_rocks':water_rocks,'street_lamps':street_lamps,'water_source':water_source,'estuary_count':1,'plaza':dict(x=river(43,13)[0],z=river(43,13)[1]),'coastal_closures':coastal_closures,'docks':docks,'harbor_boats':harbor_boats,'details':detail_counts,'public_assets':public_usage,'landmarks':[castle_landmark,*sea_landmarks],'architecture':architecture_counts,'roads':roads,'bounds':dict(minX=-85,maxX=85,minZ=-104,maxZ=112)}
+nav={'source':'european-water-town.blend','banks':banks,'stops':stops,'spawn':dict(x=sp[0],z=sp[1],heading=heading(1.7,3.5),speed=0),'carriage':carriage,'water_rocks':water_rocks,'street_lamps':street_lamps,'water_source':water_source,'alpine_peaks':alpine_peaks,'estuary_count':1,'plaza':dict(x=river(43,13)[0],z=river(43,13)[1]),'coastal_closures':coastal_closures,'docks':docks,'harbor_boats':harbor_boats,'details':detail_counts,'public_assets':public_usage,'landmarks':[castle_landmark,*sea_landmarks],'architecture':architecture_counts,'roads':roads,'bounds':dict(minX=-85,maxX=85,minZ=-104,maxZ=112)}
 ASSET.mkdir(parents=True,exist_ok=True);(ASSET/'public-assets.json').write_text(json.dumps(dict(pack='Kenney Fantasy Town Kit 2.0 + Watercraft',license='CC0',source='https://kenney.nl/assets/fantasy-town-kit',watercraft_source='https://kenney.nl/assets/watercraft-kit',usage=public_usage,optimization='Blender atlas swatches remapped to shared paper palette and merged by material'),ensure_ascii=False,indent=2));(ASSET/'town-navigation.json').write_text(json.dumps(nav,ensure_ascii=False,separators=(',',':')))
 world='// GENERATED BY Blender: tools/build_european_town.py. Do not edit production topology here.\nconst NAV='+json.dumps(nav,ensure_ascii=False,separators=(',',':'))+';\nexport const WORLD_BOUNDS=NAV.bounds,BANKS=NAV.banks,STOPS=NAV.stops,SPAWN=NAV.spawn,DELIVERY_COUNT=STOPS.length-1,DOCKS=[];\nexport const BRIDGE={minX:200,maxX:201,minZ:200,maxZ:201};\nexport const STREET_LAMPS=NAV.street_lamps,WATER_SOURCE=NAV.water_source;\nexport const CARRIAGE=NAV.carriage;\nexport const LANDMARKS=NAV.landmarks;\nexport const MAP_REGIONS=[...STOPS.slice(0,5),...LANDMARKS];\n'
 (ASSET.parent/'world.mjs').write_text(world)
@@ -750,4 +758,4 @@ bpy.ops.object.select_all(action='DESELECT')
 for o in scene.objects:
  if o.type=='MESH' and o.name!='SM_Water_SourcePreview':o.select_set(True)
 bpy.ops.export_scene.gltf(filepath=str(ASSET/'european-water-town.glb'),export_format='GLB',use_selection=True,export_cameras=False,export_lights=False,export_animations=False)
-audit={'triangles':tris,'mesh_objects':len(meshes),'materials':len({m.name for o in meshes for m in o.data.materials if m}),'source':'european-water-town.blend','navigation':'town-navigation.json','architecture':architecture_counts,'road_segments':len(roads),'carriage':carriage,'water_rocks':water_rocks,'street_lamps':street_lamps,'water_source':water_source,'estuary_count':1,'plaza':dict(x=river(43,13)[0],z=river(43,13)[1]),'coastal_closures':coastal_closures,'docks':docks,'harbor_boats':harbor_boats,'details':detail_counts,'public_assets':public_usage,'landmarks':[castle_landmark,*sea_landmarks],'validation':'finite geometry and triangle budget pass'};(OUT/'european-water-town-audit.json').write_text(json.dumps(audit,indent=2));print('TOWN_AUDIT',audit)
+audit={'triangles':tris,'mesh_objects':len(meshes),'materials':len({m.name for o in meshes for m in o.data.materials if m}),'source':'european-water-town.blend','navigation':'town-navigation.json','architecture':architecture_counts,'road_segments':len(roads),'carriage':carriage,'water_rocks':water_rocks,'street_lamps':street_lamps,'water_source':water_source,'alpine_peaks':alpine_peaks,'estuary_count':1,'plaza':dict(x=river(43,13)[0],z=river(43,13)[1]),'coastal_closures':coastal_closures,'docks':docks,'harbor_boats':harbor_boats,'details':detail_counts,'public_assets':public_usage,'landmarks':[castle_landmark,*sea_landmarks],'validation':'finite geometry and triangle budget pass'};(OUT/'european-water-town-audit.json').write_text(json.dumps(audit,indent=2));print('TOWN_AUDIT',audit)
