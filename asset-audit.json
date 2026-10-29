@@ -5427,10 +5427,35 @@
     "bridges": 12,
     "new_bridges": 8,
     "bridge_triangles": 8958,
-    "courier_triangles": 264,
+    "courier_triangles": 8768,
     "reachable_nodes": 100585,
     "all_town_banks_connected": true,
-    "castle_walkable": true
+    "castle_walkable": true,
+    "courier_source": "courier.blend"
   },
-  "complete_scene_triangles": 307153
+  "courier": {
+    "source": "Quaternius Casual Character",
+    "source_url": "https://poly.pizza/m/kZ3DmIoGip",
+    "download_url": "https://static.poly.pizza/90a9e2d4-053f-42f1-99a2-8f5e1180ea7f.glb",
+    "license": "CC0-1.0",
+    "sha256": "fea7e71271203e7073f1a073fa1208de7402df276f87f80e149bf7589b5d46b4",
+    "base_triangles": 5776,
+    "triangles": 8768,
+    "bones": 62,
+    "animations": [
+      "Idle",
+      "Run",
+      "Walk"
+    ],
+    "height": 1.74,
+    "accessory_meshes": 7,
+    "paper_materials": 12,
+    "native_accessories": [
+      "cloth cap and curved visor",
+      "collar and cuff bands",
+      "uniform buttons and seams",
+      "rounded leather satchel, letters and buckle"
+    ]
+  },
+  "complete_scene_triangles": 315657
 }

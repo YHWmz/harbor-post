@@ -73,6 +73,7 @@ node tests/town-upgrade.mjs
 python3 tests/alpine-terrain.py
 node tests/civic-districts.mjs
 node tests/walking.mjs
+node tests/courier.mjs
 ```
 
 覆盖全部五封信、返航、城堡码头、湖泊、河口、海滨及近海的实际驾驶，最高船速碰撞，229 米马车上下山和建筑净空，以及河口封闭、原生灯位、广场、住宅和山泉坡度。主城镇导出为 219,182 个三角面、26 个材质，限制为 220,000 个三角面。
@@ -118,7 +119,7 @@ Blender 负责建筑、地形、车辆和碰撞的真实网格；Three.js 负责
 
 庄园细化拱窗、百叶窗、门廊、石饰、老虎窗与烟囱；市政厅补齐钟盘、柱廊、山花和石雕前庭。花园使用立体修篱、分层花叶、藤架和曲径，五处公园具有不同布局。
 
-复用 Quaternius 凉亭与 Poly Haven 长椅、马雕塑（CC0），经 Blender 比例统一、减面和纸色材质重绘后合并导出，再由 Three.js 统一墨线、纸纹与夜间光照。原始素材、许可、优化记录和生成脚本均保留，详见[素材清单](docs/curated-assets.md)。精修街区版本297,931三角面；加入步行桥与人物后全场景307,153三角面（上限320,000）。
+复用 Quaternius 凉亭与 Poly Haven 长椅、马雕塑（CC0），经 Blender 比例统一、减面和纸色材质重绘后合并导出，再由 Three.js 统一墨线、纸纹与夜间光照。原始素材、许可、优化记录和生成脚本均保留，详见[素材清单](docs/curated-assets.md)。精修街区版本297,931三角面；加入步行桥与人物后全场景315,657三角面（上限320,000）。
 
 ![庄园近景](docs/refined-manor.png)
 ![市政厅近景](docs/refined-hall.png)
@@ -130,9 +131,22 @@ Blender 负责建筑、地形、车辆和碰撞的真实网格；Three.js 负责
 
 新增8座有栏杆和接坡的步桥，结合原4座石桥与山路，将20片城镇陆地接入同一陆地步行网络。人物可以到庄园、花园、公园、市政厅、两处码头，沿山路上城堡。建筑墙面、桥栏杆和水边参与碰撞，不允许直接踏水。房屋内部不开放。
 
-`tools/build_walking.py`在现有Blender场景上生成独立源文件`blender/walking-town.blend`，导出`walking-town.glb`、`walker.glb`和`walking-navigation.json`。步行地面按0.45m多层网格采样原地形、桥面和山路，由实际网格的BVH排除墙体及道具，再验证完整连通性；运行时不重新生成桥梁建筑。人物原生建模，关节原点支持腿臂摆动。新增8958+264三角面，沿用现有纸纹、墨线和日夜光照。
+`tools/build_walking.py`在现有Blender场景上生成独立源文件`blender/walking-town.blend`，导出`walking-town.glb`、`walker.glb`和`walking-navigation.json`。步行地面按0.45m多层网格采样原地形、桥面和山路，由实际网格的BVH排除墙体及道具，再验证完整连通性；运行时不重新生成桥梁建筑。人物采用经改造的Quaternius CC0骨骼角色，使用实际待机/走路/跑步动画。步桥8958三角面，现送信人8768三角面，沿用现有纸纹、墨线和日夜光照。
 
 `node tests/walking.mjs`独立检查100585个步行节点的连通性、20片陆地、24个目的地（含山顶和邮路点）、上下船距离/限速、逐帧跨桥、海水碰撞及全场景预算。
 
 ![陆地步行](docs/walking-town.png)
 ![步桥与街区全景](docs/walking-network.png)
+
+## 送信人角色重制
+
+以 [Quaternius Casual Character](https://poly.pizza/m/kZ3DmIoGip)（CC0）替换264面的方块角色。保留原作者完整人物网格、62根骨骼及原始权重，导出Idle/Walk/Run三个循环，由速度平滑混合，支持倒退播放步态。面部、头发、手指、肩肘与膝盖沿用完整角色结构。
+
+在Blender中统一灰绿制服、蓝灰帽裤、暖肤色和棕皮革，新增曲面便帽/帽檐、徽章、衬领、袖口、纽扣、前后肩带与圆角翻盖邮包（信件、缝线、扣件）。帽子跟随Head，邮包跟随Hips，肩带混合胸部/髋部权重。细配件按材质合并为7个批次。脸部采用较淡纸纹，衣物保留轻排线；蒙皮人物不添加停留在T姿态的静态描边几何。
+
+原始文件、来源、SHA256和许可位于source-assets/quaternius；可编辑源为blender/courier.blend。单独重建：`blender -b --python tools/build_courier.py`；完整步行重建脚本会自动调用它。角色8768面，全场景315657面，仍小于320000预算。
+
+验证：`node tests/courier.mjs`检查来源摘要、许可、网格/权重与动画通道；`blender -b blender/courier.blend --python tests/courier-pose.py`检查三种动作13个相位中的脚底高度、手臂动作和帽子绑定。
+
+![送信人正侧背与步态](docs/courier-turnaround.png)
+![游戏中的送信人](docs/courier-in-town.png)

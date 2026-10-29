@@ -182,37 +182,10 @@ assert tris<16000,('walking geometry budget',tris)
 bpy.ops.object.select_all(action='DESELECT')
 for o in bridge_objects:o.select_set(True)
 bpy.ops.export_scene.gltf(filepath=str(A/'walking-town.glb'),export_format='GLB',use_selection=True,export_animations=False,export_cameras=False,export_lights=False)
-# Lightweight articulated courier; pivots authored at hips/shoulders for runtime gait.
-walker=bpy.data.objects.new('Courier',None);col.objects.link(walker);parts=[]
-def part(name,loc,scale,mat,shape='cube',pivot=None):
- if shape=='sphere':bpy.ops.mesh.primitive_uv_sphere_add(segments=8,ring_count=4,location=loc)
- else:bpy.ops.mesh.primitive_cube_add(size=1,location=loc)
- o=bpy.context.object;o.name=name;o.scale=scale;bpy.ops.object.transform_apply(location=False,rotation=False,scale=True);o.data.materials.append(materials[mat]);
- for c in list(o.users_collection):c.objects.unlink(o)
- col.objects.link(o)
- if pivot:
-  pivot=Vector(pivot);delta=o.location-pivot
-  for v in o.data.vertices:v.co+=delta
-  o.location=pivot
- o.parent=walker;parts.append(o);return o
-# Blender Y=-gameZ; courier faces game+Z.
-part('Coat',(0,0,1.0),(.48,.30,.61),'Sage');part('Collar',(0,-.04,1.33),(.31,.32,.10),'Cream')
-part('Head',(0,0,1.51),(.18,.17,.20),'Plaster','sphere')
-part('Cap',(0,0,1.68),(.23,.20,.07),'Slate','sphere');part('CapBrim',(0,-.15,1.64),(.39,.20,.045),'Slate')
-for side,xx in [('Left',-.16),('Right',.16)]:
- part(side+'Leg',(xx,0,.39),(.17,.21,.66),'Slate',pivot=(xx,0,.73));shoe=part(side+'Shoe',(xx,-.05,.08),(.19,.32,.16),'Wood');leg=next(o for o in parts if o.name==side+'Leg');shoe.parent=leg;shoe.location-=leg.location
- part(side+'Arm',(xx*1.9,0,1.03),(.14,.18,.52),'Sage',pivot=(xx*1.9,0,1.28))
-part('Mailbag',(.29,.03,.83),(.22,.36,.30),'Wood');part('SatchelFlap',(.29,-.16,.87),(.23,.04,.22),'Cream')
-# Strap on front of coat, only a narrow painted band.
-part('Strap',(0,-.16,1.03),(.055,.035,.65),'Wood').rotation_euler.y=-.48
-for s in [-1,1]:part('Eye'+str(s),(s*.065,-.163,1.54),(.022,.025,.026),'Ink')
-bpy.ops.object.select_all(action='DESELECT')
-for o in [walker,*parts]:o.select_set(True)
-walker_tris=0
-for o in parts:o.data.calc_loop_triangles();walker_tris+=len(o.data.loop_triangles)
-assert walker_tris<1200
-bpy.ops.export_scene.gltf(filepath=str(A/'walker.glb'),export_format='GLB',use_selection=True,export_animations=False,export_cameras=False,export_lights=False)
-# Source blend includes the original town for editable placement context.
+# The courier is a separately reproducible CC0 adaptation with actual skeletal clips.
 bpy.ops.wm.save_as_mainfile(filepath=str(P/'blender/walking-town.blend'))
+courier_script=P/'tools/build_courier.py'
+exec(compile(courier_script.read_text(),str(courier_script),'exec'),{'__file__':str(courier_script),'__name__':'__main__'})
+walker_tris=json.loads((A/'courier-audit.json').read_text())['triangles']
 (A/'walking-audit.json').write_text(json.dumps(dict(bridges=len(bridges),new_bridges=sum(not b['existing'] for b in bridges),bridge_triangles=tris,courier_triangles=walker_tris,reachable_nodes=len(reachable),all_town_banks_connected=all(c['nodes'] for c in coverage),castle_walkable=True),indent=2))
 print('PASS walking export',tris,walker_tris,'nodes',len(reachable),flush=True)

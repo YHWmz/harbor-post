@@ -2,8 +2,9 @@
   "bridges": 12,
   "new_bridges": 8,
   "bridge_triangles": 8958,
-  "courier_triangles": 264,
+  "courier_triangles": 8768,
   "reachable_nodes": 100585,
   "all_town_banks_connected": true,
-  "castle_walkable": true
+  "castle_walkable": true,
+  "courier_source": "courier.blend"
 }
