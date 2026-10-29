@@ -17,9 +17,9 @@ export function createCourierAnimator(root,clips){
  for(const [name,action] of Object.entries(actions))action.setEffectiveWeight(name==='Idle'?1:0).play();
  const weights={Idle:1,Walk:0,Run:0};
  return {actions,mixer,update(dt,speed){
-  const v=Math.abs(speed),moving=THREE.MathUtils.smoothstep(v,.05,.55),run=THREE.MathUtils.smoothstep(v,3.1,4.5),wanted={Idle:1-moving,Walk:moving*(1-run),Run:moving*run};
+  const v=Math.abs(speed),moving=THREE.MathUtils.smoothstep(v,.05,.55),run=THREE.MathUtils.smoothstep(v,4.0,6.0),wanted={Idle:1-moving,Walk:moving*(1-run),Run:moving*run};
   for(const name of ['Idle','Walk','Run']){weights[name]=THREE.MathUtils.lerp(weights[name],wanted[name],1-Math.exp(-dt*9));actions[name].setEffectiveWeight(weights[name]);}
-  const direction=speed<-.05?-1:1;actions.Walk.setEffectiveTimeScale(direction*THREE.MathUtils.clamp(v/1.8,.45,1.7));actions.Run.setEffectiveTimeScale(direction*THREE.MathUtils.clamp(v/4.3,.6,1.4));mixer.update(dt);
+  const direction=speed<-.05?-1:1;actions.Walk.setEffectiveTimeScale(direction*THREE.MathUtils.clamp(v/1.8,.45,2.3));actions.Run.setEffectiveTimeScale(direction*THREE.MathUtils.clamp(v/4.3,.6,1.7));mixer.update(dt);
  }};
 }
 export function loadWalking(scene,onReady,onError){

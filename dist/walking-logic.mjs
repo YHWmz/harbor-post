@@ -21,7 +21,7 @@ export function canReturnToBoat(walker,boat){return walker.y<1.1&&Math.hypot(wal
 export function canDeliverOnFoot(walker,stop){const landing=findLanding({...stop,speed:0},12);return landing&&Math.hypot(walker.x-landing.x,walker.z-landing.z)<2.4&&Math.abs(walker.y-landing.y)<.8;}
 export function stepWalker(state,input,dt){
  dt=Math.min(.05,Math.max(0,dt));let {x,y,z,heading}=state;heading+=((input.left?1:0)-(input.right?1:0))*2.2*dt;
- const throttle=Number(!!input.forward)-Number(!!input.back),speed=input.brake?0:throttle*(input.slow?4.6:2.6);const dx=Math.sin(heading)*speed*dt,dz=Math.cos(heading)*speed*dt;
+ const throttle=Number(!!input.forward)-Number(!!input.back),speed=input.brake?0:throttle*(input.slow?6.2:3.8);const dx=Math.sin(heading)*speed*dt,dz=Math.cos(heading)*speed*dt;
  let moved=0;const count=Math.max(1,Math.ceil(Math.hypot(dx,dz)/.09));
  for(let i=0;i<count;i++){
   let next=surfaceAt(x+dx/count,z+dz/count,y);
